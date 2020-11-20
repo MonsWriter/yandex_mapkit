@@ -147,6 +147,14 @@ public class YandexMapController implements PlatformView, MethodChannel.MethodCa
   }
 
   @SuppressWarnings("unchecked")
+  private ArrayList<Point> getBounds() {
+    Point bottomLeftPoint = mapView.getMapWindow().getFocusRegion().bottomLeftPoint;
+    Point topRightPoint = mapView.getMapWindow().getFocusRegion().topRightPoint;
+    ArrayList<Point> points = {bottomLeftPoint, topRightPoint};
+    return points;
+  }
+
+  @SuppressWarnings("unchecked")
   private void setBounds(MethodCall call) {
     Map<String, Object> params = ((Map<String, Object>) call.arguments);
     BoundingBox boundingBox = new BoundingBox(
