@@ -104,9 +104,9 @@ class YandexMapController extends ChangeNotifier {
         latitude: points['minLatitude'], longitude: points['minLongitude']);
     final Point topRight = Point(
         latitude: points['maxLatitude'], longitude: points['maxLongitude']);
-    // ignore: always_specify_types
     print('getBounds() bottomLeft = ${bottomLeft.toString()}');
     print('getBounds() topRight = ${topRight.toString()}');
+    // ignore: always_specify_types
     return [bottomLeft, topRight];
   }
 
