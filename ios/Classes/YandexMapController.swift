@@ -191,8 +191,8 @@ public class YandexMapController: NSObject, FlutterPlatformView {
   }
 
   public func getBounds() -> [YMKPoint] {
-    let bottomLeftPoint = mapView.mapWindow.focusRegion.bottomLeftPoint
-    let topRightPoint = mapView.mapWindow.focusRegion.topRightPoint
+    let bottomLeftPoint = mapView.mapWindow.focusRegion.bottomLeft
+    let topRightPoint = mapView.mapWindow.focusRegion.topRight
 
     return [bottomLeftPoint, topRightPoint]
   }
