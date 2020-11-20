@@ -511,6 +511,7 @@ public class YandexMapController implements PlatformView, MethodChannel.MethodCa
       case "getBounds":
         Map<String, Object> points = getBounds();
         result.success(points);
+        break;
       case "moveToUser":
         moveToUser();
         result.success(null);
