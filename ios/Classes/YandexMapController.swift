@@ -190,11 +190,11 @@ public class YandexMapController: NSObject, FlutterPlatformView {
     moveWithParams(params, cameraPosition)
   }
 
-  public func getBounds() -> [YMKPoint] {
+  public func getBounds() -> [String: Any] {
     let bottomLeftPoint = mapView.mapWindow.focusRegion.bottomLeft
     let topRightPoint = mapView.mapWindow.focusRegion.topRight
 
-    return [bottomLeftPoint, topRightPoint]
+    return ["minLatitude":bottomLeftPoint.latitude, "minLongitude":bottomLeftPoint.longitude, "maxLatitude":topRightPoint.latitude, "maxLongitude":topRightPoint.longitude]
   }
 
   public func setBounds(_ call: FlutterMethodCall) {
