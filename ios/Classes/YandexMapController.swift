@@ -96,6 +96,9 @@ public class YandexMapController: NSObject, FlutterPlatformView {
     case "getTargetPoint":
       let targetPoint = getTargetPoint()
       result(targetPoint)
+    case "getBounds":
+      let bounds = getBounds()
+      result(bounds)
     case "moveToUser":
       moveToUser()
       result(nil)
