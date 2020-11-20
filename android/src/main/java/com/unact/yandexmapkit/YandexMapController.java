@@ -148,13 +148,13 @@ public class YandexMapController implements PlatformView, MethodChannel.MethodCa
 
   @SuppressWarnings("unchecked")
   private Map<String, Object> getBounds() {
-    Point bottomLeftPoint = mapView.getMapWindow().getFocusRegion().getBottomLeft;
-    Point topRightPoint = mapView.getMapWindow().getFocusRegion().getTopRight;
+    Point bottomLeftPoint = mapView.getMapWindow().getFocusRegion().getBottomLeft();
+    Point topRightPoint = mapView.getMapWindow().getFocusRegion().getTopRight();
     Map<String, Object> points = new HashMap<>();
-    arguments.put("minLatitude", bottomLeftPoint.getLatitude());
-    arguments.put("minLongitude", bottomLeftPoint.getLongitude());
-    arguments.put("maxLatitude", topRightPoint.getLatitude());
-    arguments.put("maxLongitude", topRightPoint.getLongitude());
+    points.put("minLatitude", bottomLeftPoint.getLatitude());
+    points.put("minLongitude", bottomLeftPoint.getLongitude());
+    points.put("maxLatitude", topRightPoint.getLatitude());
+    points.put("maxLongitude", topRightPoint.getLongitude());
     return points;
   }
 
