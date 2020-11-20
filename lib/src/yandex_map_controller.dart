@@ -99,6 +99,7 @@ class YandexMapController extends ChangeNotifier {
 
   Future<List<Point>> getBounds() async {
     final dynamic points = await _channel.invokeMethod<dynamic>('getBounds');
+    print('getBounds() points = ${points.toString()}');
     List<Point> results;
     results.add(Point(
         latitude: points['minLatitude'], longitude: points['minLongitude']));
