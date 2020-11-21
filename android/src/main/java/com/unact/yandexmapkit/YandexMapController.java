@@ -146,17 +146,17 @@ public class YandexMapController implements PlatformView, MethodChannel.MethodCa
     moveWithParams(params, cameraPosition);
   }
 
-  // @SuppressWarnings("unchecked")
-  // private Map<String, Object> getBounds() {
-  //   Point bottomLeftPoint = mapView.getMapWindow().getFocusRegion().getBottomLeft();
-  //   Point topRightPoint = mapView.getMapWindow().getFocusRegion().getTopRight();
-  //   Map<String, Object> points = new HashMap<>();
-  //   points.put("minLatitude", bottomLeftPoint.getLatitude());
-  //   points.put("minLongitude", bottomLeftPoint.getLongitude());
-  //   points.put("maxLatitude", topRightPoint.getLatitude());
-  //   points.put("maxLongitude", topRightPoint.getLongitude());
-  //   return points;
-  // }
+  @SuppressWarnings("unchecked")
+  private Map<String, Object> getBounds() {
+    Point bottomLeftPoint = mapView.getMapWindow().getFocusRegion().getBottomLeft();
+    Point topRightPoint = mapView.getMapWindow().getFocusRegion().getTopRight();
+    Map<String, Object> points = new HashMap<>();
+    points.put("minLatitude", bottomLeftPoint.getLatitude());
+    points.put("minLongitude", bottomLeftPoint.getLongitude());
+    points.put("maxLatitude", topRightPoint.getLatitude());
+    points.put("maxLongitude", topRightPoint.getLongitude());
+    return points;
+  }
 
   @SuppressWarnings("unchecked")
   private void setBounds(MethodCall call) {
@@ -508,10 +508,10 @@ public class YandexMapController implements PlatformView, MethodChannel.MethodCa
         Map<String, Object> point = getTargetPoint();
         result.success(point);
         break;
-      // case "getBounds":
-      //   Map<String, Object> points = getBounds();
-      //   result.success(points);
-      //   break;
+      case "getBounds":
+        Map<String, Object> points = getBounds();
+        result.success(points);
+        break;
       case "moveToUser":
         moveToUser();
         result.success(null);
